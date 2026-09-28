@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Daniela Hearts</title>
+  <desc id="desc">A romantic heart themed social media preview for Daniela.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#3d185f"/>
+      <stop offset="52%" stop-color="#2d1247"/>
+      <stop offset="100%" stop-color="#120b24"/>
+    </linearGradient>
+    <linearGradient id="heart" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ff7ec7"/>
+      <stop offset="50%" stop-color="#ff4ea3"/>
+      <stop offset="100%" stop-color="#c455ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="210" cy="110" r="80" fill="#ff9bcf" opacity="0.18"/>
+  <circle cx="980" cy="510" r="100" fill="#ff7ec7" opacity="0.2"/>
+
+  <g transform="translate(520 150)">
+    <g transform="rotate(-45 110 110)">
+      <rect x="110" y="110" width="220" height="220" rx="40" fill="url(#heart)"/>
+      <circle cx="110" cy="220" r="110" fill="url(#heart)"/>
+      <circle cx="220" cy="220" r="110" fill="url(#heart)"/>
+    </g>
+  </g>
+
+  <text x="600" y="475" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="800" fill="#fff7fb" letter-spacing="2">Daniela</text>
+  <text x="600" y="535" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="600" fill="#f9d8eb" letter-spacing="3">FOREVER IN MY HEART</text>
+</svg>

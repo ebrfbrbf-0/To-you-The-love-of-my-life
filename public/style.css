@@ -1,0 +1,211 @@
+:root {
+  --bg-1: #1d102b;
+  --bg-2: #3a1e52;
+  --bg-3: #120b24;
+  --text: #fff7fb;
+  --muted: rgba(255, 247, 251, 0.8);
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --button-1: #ff5ebc;
+  --button-2: #ff3d7d;
+  --shadow: rgba(255, 255, 255, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at center, #3d185f 0%, var(--bg-2) 25%, var(--bg-1) 55%, var(--bg-3) 100%);
+  color: var(--text);
+}
+
+body {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.hearts-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heart {
+  --size: 52px;
+  --x: 50;
+  --y: 50;
+  --duration: 8s;
+  --delay: 0s;
+  --color: #ff77b5;
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: var(--size);
+  height: var(--size);
+  transform: rotate(-45deg);
+  background: var(--color);
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.22), 0 0 30px rgba(255, 108, 180, 0.2);
+  animation: float var(--duration) ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+  opacity: 0.9;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: inherit;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: calc(var(--size) * -0.5);
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: calc(var(--size) * 0.5);
+}
+
+.heart span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform: rotate(45deg);
+  font-size: clamp(0.45rem, 0.7vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem 1.25rem;
+  min-height: 100vh;
+}
+
+.main-heart-wrap {
+  display: grid;
+  place-items: center;
+  padding: 0.9rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(17, 6, 24, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.main-heart {
+  position: relative;
+  width: min(32vmin, 220px);
+  height: min(32vmin, 220px);
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ff5ebc, #ff3d7d, #d94dff);
+  transform: rotate(-45deg);
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(255, 116, 194, 0.55), 0 0 80px rgba(255, 95, 160, 0.35);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.main-heart::before,
+.main-heart::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.main-heart::before {
+  top: -50%;
+}
+
+.main-heart::after {
+  left: 50%;
+}
+
+.main-heart span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transform: rotate(45deg);
+  font-size: clamp(1.2rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.98);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+.message {
+  margin: 0;
+  max-width: 38rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@keyframes float {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-45deg) scale(0.9);
+  }
+  50% {
+    transform: translate3d(18px, -20px, 0) rotate(-35deg) scale(1.06);
+  }
+  100% {
+    transform: translate3d(-12px, 18px, 0) rotate(-52deg) scale(0.94);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: rotate(-45deg) scale(1);
+    filter: saturate(1.1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.08);
+    filter: saturate(1.35);
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding-top: 4rem;
+  }
+
+  .main-heart {
+    width: min(46vmin, 180px);
+    height: min(46vmin, 180px);
+  }
+}
